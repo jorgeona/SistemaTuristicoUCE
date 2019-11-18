@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.9.0.final using JasperReports Library version 6.9.0-cb8f9004be492ccc537180b49c026951f4220bf3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteValoresCliente" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="eac7f807-b02f-449c-a7c4-d91bf689bd81">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="TurismoDB"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Arial" fontSize="26" isBold="true"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[Select name as Nombre_Cliente,cuotaunica as Cuota_Unica,  valordia as Valor_al_dia,valorcontrato as Valor_Total_Contrato, valorcontrato-(cuotaunica+valordia) as Saldo From cliente]]>
+	</queryString>
+	<field name="nombre_cliente" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nombre_cliente"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+	</field>
+	<field name="cuota_unica" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="cuota_unica"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+	</field>
+	<field name="valor_al_dia" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="valor_al_dia"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+	</field>
+	<field name="valor_total_contrato" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="valor_total_contrato"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+	</field>
+	<field name="saldo" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="saldo"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<image>
+				<reportElement x="-20" y="0" width="595" height="64" uuid="223a90c7-c94a-49b1-aba4-ce6fb4bd7694"/>
+				<imageExpression><![CDATA["wood.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Title" x="0" y="5" width="263" height="33" uuid="cf4799a0-8862-492c-9539-904f69e078d2"/>
+				<textElement verticalAlignment="Middle">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[Reporte Cliente-Valores]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="63" y="39" width="397" height="22" forecolor="#FFFFFF" uuid="a49f9e55-5e6d-4cee-918b-ed362f3141a0"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Detalle valores abonados y saldos del cliente]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="b862e2eb-eaf9-476e-9db5-57ed083f99e6"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="111" height="15" uuid="f8a2f795-2d22-4040-bd1a-dbf494ba2657">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0d844c03-486e-4a38-b1ba-530d112f8081"/>
+				</reportElement>
+				<text><![CDATA[Nombre_Cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="115" y="19" width="111" height="15" uuid="d39f25f7-ce1d-44b0-b270-0e3415f506b1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="37575330-c8ea-4cd0-880d-46c76dcff3c5"/>
+				</reportElement>
+				<text><![CDATA[Cuota_Unica]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="222" y="19" width="111" height="15" uuid="ed04baad-c028-45dd-b286-36f79fe8439c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="518d2354-c736-4669-a44d-9cd95c17758d"/>
+				</reportElement>
+				<text><![CDATA[Valor_Al_Dia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="333" y="19" width="127" height="15" uuid="634e1380-8b16-48bb-a888-f3bd8f01bac7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="43ad8647-3d2f-47dd-98e6-e6dd161896e4"/>
+				</reportElement>
+				<text><![CDATA[Valor_Total_Contrato]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="488" y="19" width="84" height="15" uuid="407328d9-8ad8-40e2-99fd-1b26e55a99f4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0b2dbeef-de8c-449d-8fcb-5b4764614493"/>
+				</reportElement>
+				<text><![CDATA[Saldo]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="39f48c34-b6ee-47f7-8876-c3aaee1eb021"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="111" height="15" uuid="8569fd16-96b2-4ed0-baa8-d6ab768bb79b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0d844c03-486e-4a38-b1ba-530d112f8081"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{nombre_cliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="136" y="0" width="64" height="15" uuid="045a2a6a-0fe0-4c14-8a02-b4c1158cfd99">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="37575330-c8ea-4cd0-880d-46c76dcff3c5"/>
+				</reportElement>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA["$     "+$F{cuota_unica}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="237" y="0" width="111" height="15" uuid="f19f5f56-f5d7-4253-93d8-6a048df7d94e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="518d2354-c736-4669-a44d-9cd95c17758d"/>
+				</reportElement>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA["$     "+$F{valor_al_dia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="372" y="0" width="78" height="15" uuid="5a2ef956-fd05-4cf0-8b67-1d7fb0fa69c3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="43ad8647-3d2f-47dd-98e6-e6dd161896e4"/>
+				</reportElement>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA["$     "+$F{valor_total_contrato}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="476" y="0" width="60" height="15" uuid="4693b56c-25e2-4894-af40-a0240cf43b53">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0b2dbeef-de8c-449d-8fcb-5b4764614493"/>
+				</reportElement>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA["$     "+$F{saldo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="71ea44de-7a93-4d4f-a52c-4c16cd00015b"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="e535a8ac-10a9-4f26-87e0-60b805cdf9c3"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="fff3e988-d444-495e-be94-0eff0d0462e7"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="b6dc2968-370c-49a3-a17a-642c31c3ecd6"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

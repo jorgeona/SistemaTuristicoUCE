@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Clientes</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+        <link rel="stylesheet" href="../css/shards.min.css">  
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+		<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    	<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+   	 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+   		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css"> 
+    </head>
+    <body  style="background-color:#F9F7F7">
+    <div class="col-sm">
+	<img src="https://i.ibb.co/3S5nHTM/uce.png" align="left" WIDTH=100 HEIGHT=100>
+	<img src="https://i.ibb.co/dfCWX2k/uce1.png" align="right" WIDTH=100 HEIGHT=50></div>
+    <h1 style="text-align:center">BIENVENIDO AL SISTEMA DE TURISMO UCE.</h1>
+    	<center><img src="https://i.ibb.co/mXnNGDh/inicio.jpg"></center>
+        <div th:switch="${clientes}" class="col-sm-6">
+            <div class="row">
+                <div class="col-md-8">
+                    <h2 th:case="null">Si Existen Clientes elija la opcion "Ver Clientes"! 
+                    En caso de no existir por favor seleccione la opcion "Añadir Clientes"!</h2>
+                    <div th:case="*">
+                     <h2 class="my-5" style="color:#3e5f8a">Cliente <img src="img/Listar.JPG" WIDTH=40 HEIGHT=40></h2>                
+                     <div class="form-group col-md-7"><i class="fa fa-search"></i>
+                    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Busqueda por Número de Contrato..." title="Busqueda Rapida por Número de Contrato" class="form-control" style="color:blue; border:3px solid green">
+                    </div>
+                    <table id=tabla class="table table-striped table-responsive-md table-hover" style="color:#3e5f8a">                         
+                            <thead>                               
+                                <tr>
+                                    <th>Numero_de Contrato</th>
+                                    <th>Procedencia</th>
+                                    <th>Apellidos_y_Nombres_(completos)</th>
+                                    <th>Numero_Celular</th>
+                                    <th>Numero_Fijo</th>
+                                    <th>Correo Electronico</th>
+                                    <th>Nacionalidad</th>
+                                    <th>Tipo</th>
+                                    <th>Fecha de Nacimiento</th>
+                                    <th>Fecha de Inicialización</th>
+                                    <th>Fecha de Finalización</th>
+                                    <th>Cuantia</th>
+                                    <th>Cuota Unica</th>
+                                    <th>Valor Contrato</th>
+                                    <th>Valor_Pagado al Dia</th>
+                                    <th>Saldo_a Pagar</th>
+                                    <th>Cortesía</th>
+                                    <th>Descripción_Cortesía</th>
+                                    <th>Cortesías_Entregadas</th>
+                                    <th>Cotizaciones</th>
+                                    <th>Reservas</th>
+                                    <th>Detalle_Reservas</th>
+                                    <th>Fechas_Reservaciones</th>                                                                     
+                                    <th>Editar</th>
+                                    <th>Eliminar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr  th:each="cliente : ${clientes}">                               
+                                    <td th:text="${cliente.contrato}"></td>
+                                    <td th:text="${cliente.procedencia}"></td>
+                                    <td th:text="${cliente.name}"></td>
+                                    <td th:text="${cliente.ncelular}"></td>
+                                    <td th:text="${cliente.nfijo}"></td>
+                                    <td th:text="${cliente.email}"></td>
+                                    <td th:text="${cliente.nacionalidad}"></td>                        
+                                    <td th:text="${cliente.tipo}"></td>                                 
+                                    <td th:text="${cliente.fnac}"></td> 
+                                    <td th:text="${cliente.fini}"></td> 
+                                    <td th:text="${cliente.ffin}"></td> 
+                                    <td th:text="${cliente.cuantia}"></td> 
+                                    <td th:text="${cliente.cuotaunica}"></td> 
+                                    <td th:text="${cliente.valorcontrato}"></td> 
+                                    <td th:text="${cliente.valordia}"></td> 
+                                    <td th:text="${cliente.saldo}"></td> 
+                                    <td th:text="${cliente.cortesia}"></td> 
+                                    <td th:text="${cliente.dcortesia}"></td> 
+                                    <td th:text="${cliente.cortesiaen}"></td>
+                                    <td th:text="${cliente.cotizaciones}"></td> 
+                                    <td th:text="${cliente.reservas}"></td> 
+                                    <td th:text="${cliente.dreservas}"></td> 
+                                    <td th:text="${cliente.freserva}"></td>                                    
+                                    <td><a th:href="@{/edit/{id}(id=${cliente.id})}" class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i></a></td>
+                                    <td><a th:href="@{/delete/{id}(id=${cliente.id})}" class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
+                                    <td class="windowbg2" valign="middle" width="22%">
+									<a href="/report10" target="_blank" download><img src="https://foro.elhacker.net/Themes/converted/images/icons/last_post.gif" alt="Último mensaje" title="Último mensaje" style="float: right;" /></a>
+									</td>
+                                </tr>
+                            </tbody>
+                            <tfoot class="thead-dark">
+            					<tr>
+                					<th>Numero_de Contrato</th>
+                                    <th>Procedencia</th>
+                                    <th>Apellidos_y_Nombres_(completos)</th>
+                                    <th>Numero_Celular</th>
+                                    <th>Numero_Fijo</th>
+                                    <th>Correo Electronico</th>
+                                    <th>Nacionalidad</th>
+                                    <th>Tipo</th>
+                                    <th>Fecha de Nacimiento</th>
+                                    <th>Fecha de Inicialización</th>
+                                    <th>Fecha de Finalización</th>
+                                    <th>Cuantia</th>
+                                    <th>Cuota Unica</th>
+                                    <th>Valor Contrato</th>
+                                    <th>Valor_Pagado al Dia</th>
+                                    <th>Saldo_a Pagar</th>
+                                    <th>Cortesía</th>
+                                    <th>Descripción Cortesía</th>
+                                    <th>Cortesías Entregadas</th>
+                                    <th>Cotizaciones</th>
+                                    <th>Reservas</th>
+                                    <th>Detalle Reservas</th>
+                                    <th>Fechas_Reservaciones</th> 
+            					</tr>
+        					</tfoot>
+                   </table>                           
+ <script>
+ function myFunction() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("tabla");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+  td = tr[i].getElementsByTagName("td")[0];
+   if (td) {
+     if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+       tr[i].style.display = "none";
+     }
+    }       
+  }
+}
+</script>
+            </div>    
+<div class="col-sm">
+<h2 class="my-5" style="color:#3e5f8a">Busqueda de Clientes por rango de fecha:<img src="img/Listar.JPG" WIDTH=40 HEIGHT=40></h2>
+    Buscar: <input id="Date_search" type="text" placeholder="Ingrese rango de fecha" style="color:blue; border:3px solid green"/><br>        
+    <table id='prueba' class="table table-striped table-responsive-md table-hover" style="color:#3e5f8a">
+    <thead>
+    <tr>
+        <th>Fecha_Registro</th>
+        <th>Numero_de_Contrato</th>
+        <th>Nombre_Cliente</th>
+        <th>Nacionalidad</th>
+        <th>Reservas</th>
+        <th>Valor Contrato</th>
+        <th>Valor_Pagado al Dia</th>
+        <th>Saldo_a Pagar</th>           
+     </tr>
+      </thead>
+      <tbody>
+         <tr th:each="cliente : ${clientes}">                               
+         <td th:text="${cliente.fini}"></td> 
+         <td th:text="${cliente.contrato}"></td>
+         <td th:text="${cliente.name}"></td>
+         <td th:text="${cliente.nacionalidad}"></td>
+         <td th:text="${cliente.reservas}"></td>
+         <td th:text="${cliente.valorcontrato}"></td> 
+         <td th:text="${cliente.valordia}"></td> 
+         <td th:text="${cliente.saldo}"></td>                                                                                
+         </tr>
+      </tbody>
+      <tfoot class="thead-dark">
+         <tr>
+         <th>Numero_de Contrato</th>
+         <th>Nombre_Cliente</th>
+         <th>Fecha Registro</th>
+         <th>Nacionalidad</th> 
+         <th>Reservas</th>
+         <th>Valor Contrato</th>
+         <th>Valor_Pagado al Dia</th>
+         <th>Saldo_a Pagar</th>                                     
+         </tr>
+        </tfoot>
+    </table>
+    
+    
+    <script type="text/javascript">
+    minDateFilter = "";
+    maxDateFilter = "";
+    $.fn.dataTableExt.afnFiltering.push(
+      function(oSettings, aData, iDataIndex) {
+        if (typeof aData._date == 'undefined') {
+          aData._date = new Date(aData[0]).getTime();
+        }
+
+        if (minDateFilter && !isNaN(minDateFilter)) {
+          if (aData._date < minDateFilter) {
+            return false;
+          }
+        }
+
+        if (maxDateFilter && !isNaN(maxDateFilter)) {
+          if (aData._date > maxDateFilter) {
+            return false;
+          }
+        }
+
+        return true;
+      }
+    );
+    $(document).ready(function() {
+      $("#Date_search").val("");
+    });
+
+    var table = $('#prueba').DataTable( {
+      deferRender:    true, 
+      "autoWidth": false,     
+      "search": {
+        "regex": true,
+        "caseInsensitive": false,
+      },});
+
+    $("#Date_search").daterangepicker({
+      "locale": {
+        "format": "YYYY-MM-DD",
+        "separator": " to ",
+        "applyLabel": "Apply",
+        "cancelLabel": "Cancel",
+        "fromLabel": "From",
+        "toLabel": "To",
+        "customRangeLabel": "Custom",
+        "weekLabel": "W",
+        "daysOfWeek": [
+          "Su",
+          "Mo",
+          "Tu",
+          "We",
+          "Th",
+          "Fr",
+          "Sa"
+        ],
+        "monthNames": [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December"
+        ],
+        "firstDay": 1
+      },
+      "opens": "center",
+    }, function(start, end, label) {
+      maxDateFilter = end;
+      minDateFilter = start;
+      table.draw();  
+    });
+    </script>
+    </div>  
+                    <p class="my-5"><a href="/entrar" class="btn btn-primary">Añadir Cliente<i class="fas fa-user-plus ml-2"></i></a>
+                    <a class="btn btn-primary" href="/listar">Ver Clientes<i class="fas fa-sync fa-spin ml-2"></i></a>
+                    <a class="btn btn-success" href="/home/home">Inicio<i class="fa fa-home ml-2"></i></a></p>                   
+                    <a th:href="@{/logout}"><button class="btn btn-danger"><strong>Cerrar Sesión</strong><i class="fa fa-close ml-2"></i></button></a>
+                    <br></br>
+             </div>
+            </div>
+        	 <h6 style="color:black"><span style="background-color:orange"> Para más información, consulte el:</span>
+			<A href="http://uce.edu.ec/" charset="ISO-8859-1" style="color:blue"><strong>"Sitio web UCE"</strong></A></h6>				
+        			<STYLE type="text/css">
+  						H6.creditos {text-align: left}
+ 					</STYLE>
+ 					<img src="img/avion.gif" align="right" WIDTH=120 HEIGHT=94>	
+ 					<H6 class="creditos"> Es un placer atenderlos </H6>
+ 					<H6 class="creditos">Tutor: Dr. Santiago Morales</H6> 
+        			<H6 class="creditos" style="color:#5e2129"><strong>Contact App Developer: jlonac@uce.edu.ec</strong></H6>
+        	</div>  
+    </body>
+</html>

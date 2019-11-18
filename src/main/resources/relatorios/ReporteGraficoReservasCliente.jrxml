@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.9.0.final using JasperReports Library version 6.9.0-cb8f9004be492ccc537180b49c026951f4220bf3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteGraficoReservasCliente" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c368610e-5bee-4e75-8f1e-ecda64380534">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="47"/>
+	<property name="ireport.y" value="451"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="TURISMODB"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="PieChartDataset" uuid="21b70311-b650-4678-a39c-887917366bf0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT(SELECT count(reservas)AS VUELOS FROM cliente WHERE UPPER(reservas) LIKE UPPER('%vuelo%')),
+(SELECT count(reservas)AS CARRO FROM cliente WHERE UPPER(reservas) LIKE UPPER('%carro%')),
+(SELECT count(reservas)AS COMIDA FROM cliente WHERE UPPER(reservas) LIKE UPPER('%comida%')),
+(SELECT count(reservas)AS CRUCERO FROM cliente WHERE UPPER(reservas) LIKE UPPER('%crucero%')),
+(SELECT count(reservas)AS HOSPEDAJE FROM cliente WHERE UPPER(reservas) LIKE UPPER('%hospedaje%')),
+count(reservas)AS ADICIONALES FROM cliente WHERE UPPER(reservas) LIKE UPPER('%adicionales%')]]>
+	</queryString>
+	<field name="vuelos" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="vuelos"/>
+	</field>
+	<field name="carro" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="carro"/>
+	</field>
+	<field name="comida" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="comida"/>
+	</field>
+	<field name="crucero" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="crucero"/>
+	</field>
+	<field name="hospedaje" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="hospedaje"/>
+	</field>
+	<field name="adicionales" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="adicionales"/>
+	</field>
+	<background>
+		<band height="545" splitType="Stretch">
+			<pie3DChart>
+				<chart isShowLegend="false" evaluationTime="Report">
+					<reportElement x="-14" y="301" width="229" height="139" uuid="9c2b39f8-7bbb-400b-a7b5-08065f7181e7"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<dataset>
+						<datasetRun subDataset="PieChartDataset" uuid="48bc4196-bec0-438e-a7c8-f74180b4f441">
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource(5)]]></dataSourceExpression>
+						</datasetRun>
+					</dataset>
+					<keyExpression><![CDATA[/* Replace with your key expression here */
+$V{REPORT_COUNT}]]></keyExpression>
+					<valueExpression><![CDATA[new Double(200*Math.random()*5)]]></valueExpression>
+				</pieDataset>
+				<pie3DPlot>
+					<plot backgroundAlpha="0.5" foregroundAlpha="0.8">
+						<seriesColor seriesOrder="0" color="#3399FF"/>
+						<seriesColor seriesOrder="1" color="#00CCFF"/>
+						<seriesColor seriesOrder="2" color="#0066CC"/>
+						<seriesColor seriesOrder="3" color="#6699FF"/>
+						<seriesColor seriesOrder="4" color="#004A94"/>
+						<seriesColor seriesOrder="5" color="#00356A"/>
+					</plot>
+					<itemLabel color="#000000" backgroundColor="#FFFFFF"/>
+				</pie3DPlot>
+			</pie3DChart>
+			<pieChart>
+				<chart evaluationTime="Report">
+					<reportElement x="227" y="112" width="595" height="333" uuid="a7a0dab3-bfa3-4923-ba45-a1e5c6c533fc"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset maxCount="10" minPercentage="5.0">
+					<pieSeries>
+						<keyExpression><![CDATA[$F{vuelos}]]></keyExpression>
+						<valueExpression><![CDATA[$F{vuelos}]]></valueExpression>
+						<labelExpression><![CDATA["Vuelos"]]></labelExpression>
+					</pieSeries>
+					<pieSeries>
+						<keyExpression><![CDATA[$F{carro}+""]]></keyExpression>
+						<valueExpression><![CDATA[$F{carro}]]></valueExpression>
+						<labelExpression><![CDATA["Carro"]]></labelExpression>
+					</pieSeries>
+					<pieSeries>
+						<keyExpression><![CDATA[$F{comida}+""]]></keyExpression>
+						<valueExpression><![CDATA[$F{comida}]]></valueExpression>
+						<labelExpression><![CDATA["Comida"]]></labelExpression>
+					</pieSeries>
+					<pieSeries>
+						<keyExpression><![CDATA[$F{crucero}]]></keyExpression>
+						<valueExpression><![CDATA[$F{crucero}]]></valueExpression>
+						<labelExpression><![CDATA["Crucero"]]></labelExpression>
+					</pieSeries>
+					<pieSeries>
+						<keyExpression><![CDATA[$F{hospedaje}]]></keyExpression>
+						<valueExpression><![CDATA[$F{hospedaje}]]></valueExpression>
+						<labelExpression><![CDATA["Hospedaje"]]></labelExpression>
+					</pieSeries>
+					<pieSeries>
+						<keyExpression><![CDATA[$F{adicionales}]]></keyExpression>
+						<valueExpression><![CDATA[$F{adicionales}]]></valueExpression>
+						<labelExpression><![CDATA["Adicionales"]]></labelExpression>
+					</pieSeries>
+				</pieDataset>
+				<piePlot>
+					<plot/>
+					<itemLabel/>
+				</piePlot>
+			</pieChart>
+			<staticText>
+				<reportElement x="281" y="110" width="133" height="22" uuid="72c7f576-7ad1-4017-b90c-4fa845f00236"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Grafica Estadistica:]]></text>
+			</staticText>
+		</band>
+	</background>
+	<title>
+		<band height="94" splitType="Stretch">
+			<staticText>
+				<reportElement style="SubTitle" x="11" y="65" width="639" height="29" uuid="0dae0af3-dd1d-4b42-b346-386af21f0689"/>
+				<textElement textAlignment="Left">
+					<font size="18" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Se detalla los servicios de reserva que mas adquieren nuestros clientes.]]></text>
+			</staticText>
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="0" width="822" height="65" forecolor="#006699" backcolor="#006699" uuid="83f5e806-cc04-4161-87a9-07633f604bc1"/>
+				<staticText>
+					<reportElement style="Title" x="25" y="0" width="585" height="65" uuid="f5cd9ee0-5caa-4e48-8946-c7e84d82a845"/>
+					<textElement textAlignment="Left">
+						<font size="40" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Reporte Reservas-Cliente]]></text>
+				</staticText>
+				<image>
+					<reportElement x="752" y="9" width="51" height="51" uuid="721eecd3-a5f0-4985-87e2-20e4ecd545c7"/>
+					<imageExpression><![CDATA["uce1.PNG"]]></imageExpression>
+				</image>
+			</frame>
+			<staticText>
+				<reportElement x="725" y="70" width="73" height="11" uuid="4cd09886-f986-404e-8acc-e206b062a5ed"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[S.Turistico "UCE"]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="173" splitType="Stretch">
+			<frame>
+				<reportElement x="227" y="0" width="575" height="14" uuid="2a3d298d-90eb-4db1-919a-c9b2ed28c222"/>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="-206" y="43" width="95" height="14" forecolor="#000000" uuid="698687f9-0439-42ce-9853-5f41ec71a745">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cf1549b9-f3f6-462a-9b37-1db5473d09f7"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Vuelos:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="-206" y="63" width="95" height="14" forecolor="#000000" uuid="6a73264f-10ed-406c-9a2f-eb59377437d4">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1bf5b3b0-e0bf-4155-8674-537d2d3a880d"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Carro:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="-206" y="83" width="95" height="14" forecolor="#000000" uuid="2c134709-a2ce-4e5c-b793-428e5841c671">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c7250577-1efb-4fe1-9341-275ef9372d7e"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Comida]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="-206" y="103" width="95" height="14" forecolor="#000000" uuid="df8954fc-52b4-4496-a33f-938cecba0c42">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9d8a75bd-cb1b-4401-9e88-50f227ed58ed"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Crucero]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="-206" y="123" width="95" height="14" forecolor="#000000" uuid="570b0b20-4269-41e7-b368-c1a0b28bc754">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="36115f7a-31ab-455b-8c36-1c90ece3e688"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Hospedaje]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="-206" y="143" width="95" height="14" forecolor="#000000" uuid="2becc76f-3897-42c8-937a-933cb2cd17d2">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="904e0767-a23e-4d9b-937f-2a56593dcabc"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Adicionales]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement x="116" y="27" width="314" height="146" uuid="822bafe9-34ee-4b4f-aa76-3eae029c4911"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="4" y="16" width="95" height="14" uuid="7f7c16e9-3c59-41f0-809f-37379b9b8c50">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cf1549b9-f3f6-462a-9b37-1db5473d09f7"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vuelos}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="5" y="36" width="95" height="14" uuid="1e6ce55d-d42f-40c5-9477-4f6dad9ae223">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1bf5b3b0-e0bf-4155-8674-537d2d3a880d"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{carro}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="4" y="56" width="95" height="14" uuid="f1820a31-00de-4234-9f5b-c7178c97a8de">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c7250577-1efb-4fe1-9341-275ef9372d7e"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{comida}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="6" y="77" width="95" height="14" uuid="d28767b8-58ab-422f-9846-ef5ed01d18ee">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9d8a75bd-cb1b-4401-9e88-50f227ed58ed"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{crucero}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="6" y="96" width="95" height="14" uuid="2c6421db-f1de-48e0-8a98-6f5458c2f907">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="36115f7a-31ab-455b-8c36-1c90ece3e688"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{hospedaje}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="5" y="116" width="95" height="14" uuid="730bec2c-83ac-4b31-afe2-5f5a912d3f43">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="904e0767-a23e-4d9b-937f-2a56593dcabc"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{adicionales}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<staticText>
+				<reportElement x="20" y="15" width="80" height="22" uuid="a45ed712-26a4-4bcc-8910-2291e87c6404"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reserva:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="116" y="15" width="80" height="22" uuid="9ab72089-dd3d-4bb7-be73-607e33a96dbf"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[N.-]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="13" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="0" width="802" height="4" uuid="c23ffbf7-1928-41f8-ade3-5930d9a4871d"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="16" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="2" y="0" width="800" height="16" forecolor="#D0B48E" backcolor="#006699" uuid="6f4fe8ef-88ca-4d5d-b46a-054826bb7893"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="753" y="0" width="40" height="16" forecolor="#FFFFFF" uuid="970781d6-87a0-4d3d-a07b-5ae173a1317a"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="673" y="0" width="80" height="16" forecolor="#FFFFFF" uuid="42664b34-c87b-42f8-911b-bd9c2ab9111e"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="0" width="197" height="16" forecolor="#FFFFFF" uuid="06b3d6e8-b4a5-4251-b1fb-f640689933e8"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

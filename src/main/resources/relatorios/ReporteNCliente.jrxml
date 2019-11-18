@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.9.0.final using JasperReports Library version 6.9.0-cb8f9004be492ccc537180b49c026951f4220bf3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Simple_Blue" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="48cc2b76-2365-44fc-bf97-13b41ffbe3e7">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="TurismoDB"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT (SELECT count( w.nacionalidad) AS Argentina
+FROM cliente w
+WHERE 
+	 w.nacionalidad = 'Argentina' ),
+	(SELECT count( x.nacionalidad) AS Ecuador
+FROM cliente x
+WHERE 
+	 x.nacionalidad = 'Ecuador' ),
+	(SELECT count( ca.nacionalidad) AS Canada
+FROM cliente ca
+WHERE 
+	 ca.nacionalidad = 'Canada' ),
+	(SELECT count( es.nacionalidad) AS España
+FROM cliente es
+WHERE 
+	 es.nacionalidad = 'España' ),
+	count( y.nacionalidad) AS Colombia
+FROM cliente y
+WHERE 
+	 y.nacionalidad = 'Colombia']]>
+	</queryString>
+	<field name="argentina" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="argentina"/>
+	</field>
+	<field name="ecuador" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="ecuador"/>
+	</field>
+	<field name="canada" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="canada"/>
+	</field>
+	<field name="españa" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="españa"/>
+	</field>
+	<field name="colombia" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="colombia"/>
+	</field>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="62c7b751-dc65-4413-9f1c-342ebf50b0d1"/>
+				<staticText>
+					<reportElement x="4" y="10" width="460" height="43" forecolor="#FFFFFF" uuid="3728c5c5-f1e8-4d88-aa7b-a330be806762"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Reporte Cliente-Pais]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="320" y="43" width="255" height="20" forecolor="#FFFFFF" uuid="6ccd469c-1f5e-47c0-93d1-dda264f0735c"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Numero de Clientes por Paises ]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="14"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="55">
+			<staticText>
+				<reportElement x="0" y="10" width="140" height="40" uuid="603e487e-7a0c-4951-ac4b-e581886bac0d"/>
+				<textElement>
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[Pais]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="170" y="12" width="140" height="40" uuid="0fe61339-9a95-4b2b-918f-690c07d7d5d4"/>
+				<textElement>
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[N.-]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="250">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="230" width="555" height="1" uuid="ad4e8c9c-43ba-4c29-903f-739a07fc98e8"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="169" y="70" width="121" height="20" uuid="4a6b4382-f336-4d90-934f-fe593316501c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2bba8fea-8487-49ff-9fa0-ce90cea28e3a"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ecuador}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="170" y="110" width="120" height="20" uuid="beb06870-1d58-406f-8f82-8fc902373924">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6b260d47-10da-49a1-9984-afca4787d03e"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{canada}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="169" y="150" width="121" height="20" uuid="f164ed17-1ec3-41a0-b87b-3e0256d7adca">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="46ca59b3-0b1f-4d80-9383-89054599d834"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{españa}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="169" y="190" width="121" height="20" uuid="730f2f96-9d83-4d21-9258-d2ca625fb49b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a34d27f2-cbb4-4eaa-95e4-d2bb9d153d60"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{colombia}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="70" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="5b64010b-720e-4842-8080-329a75355d9f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2bba8fea-8487-49ff-9fa0-ce90cea28e3a"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ecuador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="110" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="7fede45b-6f72-4153-9cac-9d8ee15b62af">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6b260d47-10da-49a1-9984-afca4787d03e"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Canada]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="150" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="0cbd9cad-0ae3-4fa2-8ede-7dfe88c8e742">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="46ca59b3-0b1f-4d80-9383-89054599d834"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[España]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="190" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="a58d8ea6-02be-4313-a69a-07a37049ef0e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a34d27f2-cbb4-4eaa-95e4-d2bb9d153d60"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Colombia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="29" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="b67da6db-f97c-4372-a971-168dff0235a4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="226f671e-ba1d-4bae-a61a-c147daf1e083"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Argentina]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="170" y="29" width="120" height="20" uuid="9f368006-1604-4001-bb7a-8c43493c76ca">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="226f671e-ba1d-4bae-a61a-c147daf1e083"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{argentina}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="20" width="555" height="1" forecolor="#666666" uuid="f3b46354-46f8-4116-bf0e-6d17a472d7ba"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="26">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="c7b1e822-9938-4984-b801-ce7f632e30ba"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="f53d120f-bf12-4089-a160-3a72da28de5e"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="6a1c8c03-9f91-472b-931f-355a255d793d"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

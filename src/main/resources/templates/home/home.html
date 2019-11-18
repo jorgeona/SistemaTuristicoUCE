@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org">
+<head>
+ <title>Entrada Sistema Turismo UCE</title>
+ <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+ <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style type="text/css">
+.slider {
+	width: 95%;
+	margin: auto;
+	overflow: hidden;
+}
+.slider ul {
+	display: flex;
+	padding: 0;
+	width: 600%;
+	
+	animation: cambio 30s infinite alternate linear;
+}
+.slider li {
+	width: 150%;
+	list-style: none;
+}
+
+.slider img {
+	width: 100%;
+}
+
+@keyframes cambio {
+	0% {margin-left: 0;}
+	20% {margin-left: 0;}
+	
+	25% {margin-left: -100%;}
+	45% {margin-left: -100%;}
+	
+	50% {margin-left: -200%;}
+	70% {margin-left: -200%;}
+	
+	75% {margin-left: -300%;}
+	100% {margin-left: -300%;}
+}
+</style>
+
+</head>
+<body style="background-color:#C4C1BB;">
+<br>
+<div class="col-sm">
+<img src="https://i.ibb.co/3S5nHTM/uce.png" align="left" WIDTH=100 HEIGHT=100>
+<img src="https://i.ibb.co/dfCWX2k/uce1.png" align="right" WIDTH=100 HEIGHT=50></div>
+ <div class="container">
+  <h2>Hola como estas <span th:utext="${userName}"></span>, Ha Ingresado al Sistema Turístico UCE con éxito.</h2>
+  <a th:href="@{/logout}"><button class="btn btn-danger"><strong>Cerrar Sesión</strong><i class="fa fa-close ml-2"></i></button></a>
+  
+  <div align="center"><font color="#FFFFFF" size="+1">
+  <marquee bgcolor="#C4C1BB" direction="right" loop="20">
+  <strong>"TU ALTERNATIVA MAS SEGURA"</strong></marquee></font></div>
+  
+<div class="slider">
+<ul>
+<li><img src="https://i.ibb.co/Jd1R9V6/img.jpg" HEIGHT=450 alt=""></li>
+<li><img src="https://i.ibb.co/QnKnSB6/img1.jpg" HEIGHT=450 alt=""></li>
+<li><img src="https://i.ibb.co/PFjqFbZ/img2.jpg" HEIGHT=450 alt=""></li>
+<li><img src="https://i.ibb.co/R3QQnrf/img3.jpg" HEIGHT=450 alt=""></li>
+<li><img src="https://i.ibb.co/Jd1R9V6/img.jpg" HEIGHT=450 alt=""></li>
+<li><img src="https://i.ibb.co/QnKnSB6/img1.jpg" HEIGHT=450 alt=""></li>
+<li><img src="https://i.ibb.co/PFjqFbZ/img2.jpg" HEIGHT=450 alt=""></li>
+<li><img src="https://i.ibb.co/R3QQnrf/img3.jpg" HEIGHT=450 alt=""></li>
+<li><img src="https://i.ibb.co/Jd1R9V6/img.jpg" HEIGHT=450 alt=""></li>
+<li><img src="https://i.ibb.co/QnKnSB6/img1.jpg" HEIGHT=450 alt=""></li>
+<li><img src="https://i.ibb.co/PFjqFbZ/img2.jpg" HEIGHT=450 alt=""></li>
+<li><img src="https://i.ibb.co/R3QQnrf/img3.jpg" HEIGHT=450 alt=""></li>
+</ul>
+</div>
+<h6 style="color:#ff8000"><strong>INGRESO DE CLIENTES:</strong></h6>
+  <h6 style="color:#5e2129"><strong>Si Existen Clientes elija la opcion "Ver Clientes"! 
+  En caso de no existir por favor seleccione la opcion "Añadir Clientes"!</strong></h6>
+  <p class="my-5"><a href="/entrar" class="btn btn-primary">Añadir Cliente<i class="fas fa-user-plus ml-2"></i></a>
+  <a class="btn btn-primary" href="/listar">Ver Clientes<i class="fas fa-glasses ml-2"></i></a>
+  <a class="btn btn-primary" href="/listar1">Ver Empleado Registro Contratos<i class="far fa-eye ml-2"></i></a>
+  <a class="btn btn-primary" href="/pago">Registrar y Ver Pagos a la Fecha Clientes<i class="far fa-money-bill-alt ml-2"></i></a></p>
+
+<h6 style="color:#ff8000"><strong>REPORTES:</strong></h6>
+  <h6 style="color:#5e2129"><strong>Seleccione el reporte que necesite:</strong></h6>
+  <p class="my-5"><a href="/report" target="_blank" class="btn btn-success">Reporte detalle cliente:<i class="fa fa-file-pdf-o ml-2"></i></a>
+  <a class="btn btn-success" href="/report3" target="_blank">Reporte N.- de Clientes por País<i class="far fa-chart-bar ml-2"></i></a>
+  <a class="btn btn-success" href="/report5" target="_blank">Reporte Reservas cliente<i class="	fas fa-tasks ml-2"></i></a>
+  <a class="btn btn-success" href="/report6" target="_blank">Reporte Valores cliente<i class="fas fa-chart-line ml-2"></i></a>
+  <br></br>
+  <a class="btn btn-success" href="/report10" target="_blank">Reporte Final Valores cliente<i class="fas fa-chart-line ml-2"></i></a>
+  <br></br>
+  <a class="btn btn-warning" href="/report7" target="_blank">Reporte Gráfico Reservas Clientes<i class="fas fa-chart-pie ml-2"></i></a>
+  <a class="btn btn-warning" href="/report8" target="_blank">Reporte Gráfico Número de Clientes por País<i class="fas fa-chart-pie ml-2"></i></a>
+  <a class="btn btn-warning" href="/report9" target="_blank">Reporte Gráfico Tipo Clientes por Grupos<i class="fas fa-chart-pie ml-2"></i></a></p>
+<h6 style="color:#5e2129"><strong>Reportes Mes a Mes:</strong></h6>
+  <p class="my-5"><a class="btn btn-info" href="/report1" target="_blank">Reporte Enero-Abril<i class="	far fa-file-alt fa-spin ml-2"></i></a>
+  <a class="btn btn-info" href="/report2" target="_blank">Reporte Mayo-Agosto<i class="far fa-file-alt fa-spin ml-2"></i></a>
+  <a class="btn btn-info" href="/report4" target="_blank">Reporte Septiembre-Diciembre<i class="far fa-file-alt fa-spin ml-2"></i></a></p>
+ </div>
+ 
+ 
+ 
+ <div id="main-nav" class="col-full" role="navigation">
+<div class="menus">
+<span id="close-area"><a id="logoMenu" title="inicio" href="/"><span>Inicio</span></a><a id="close-menu" class="close" title="cerrar" href="#">X</a></span>
+ 
+ <ul id="navigation">
+<li class="menu-item home-boton"><a class="Navegation1 iconoInicio" href="/" title="Inicio CampusMVP"><img class="Ico-full-size-screen" alt="Inicio" src="https://www.campusmvp.es/recursos/Custom/Themes/campusMVP/img/home-ico.png" /> <img class="Ico-responisve" alt="Inicio" src="https://www.campusmvp.es/recursos/Custom/Themes/campusMVP/img/home-ico-responsive.png" /></a></li>
+<li class="menu-item "><span><a class="Navegation1" href="/catalogo/" title="Cursos y libros">Cursos y Libros</a></span></li>
+<li class="menu-item"><span><a class="Navegation1" href="/conocenos">Con&oacute;cenos</a></span></li>
+<li class="menu-item"><span><a class="Navegation1" href="/opiniones-campusmvp" title="Opiniones de alumnos">Opiniones</a></span> </li>
+<li class="menu-item"><span><a class="Navegation1" href="/empresas">Empresas</a></span> </li>
+<li class="menu-item selected"><span><a class="NavegationSelect1" href="/recursos/">Recursos</a></span> </li>
+<li class="menu-item"><span><a class="Navegation1" href="/contacto/">Contacto</a></span> </li>
+</ul>
+ </div>
+</body>
+</html>

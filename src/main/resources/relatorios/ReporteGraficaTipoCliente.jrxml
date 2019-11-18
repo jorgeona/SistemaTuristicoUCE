@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.9.0.final using JasperReports Library version 6.9.0-cb8f9004be492ccc537180b49c026951f4220bf3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteGraficaTipoCliente" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c368610e-5bee-4e75-8f1e-ecda64380534">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="47"/>
+	<property name="ireport.y" value="451"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="TURISMODB"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="PieChartDataset" uuid="21b70311-b650-4678-a39c-887917366bf0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT (SELECT count( w.tipo) AS Adulto FROM cliente w WHERE UPPER(w.tipo) LIKE UPPER('%Adulto%')),
+(SELECT count( x.tipo) AS Niño FROM cliente x WHERE UPPER(x.tipo) LIKE UPPER('%Niño%')),
+count(y.tipo) AS Tercera_Edad FROM cliente y WHERE UPPER(y.tipo) LIKE UPPER('%Tercera Edad%')]]>
+	</queryString>
+	<field name="adulto" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="adulto"/>
+	</field>
+	<field name="niño" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="niño"/>
+	</field>
+	<field name="tercera_edad" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="tercera_edad"/>
+	</field>
+	<background>
+		<band height="555" splitType="Stretch">
+			<areaChart>
+				<chart evaluationTime="Report">
+					<reportElement x="57" y="267" width="320" height="144" uuid="14ee02bf-88d4-4b92-a792-410341d52e9b"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{adulto}]]></seriesExpression>
+						<categoryExpression><![CDATA["Adulto"]]></categoryExpression>
+						<valueExpression><![CDATA[$F{adulto}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{niño}]]></seriesExpression>
+						<categoryExpression><![CDATA["Niño"]]></categoryExpression>
+						<valueExpression><![CDATA[$F{niño}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{tercera_edad}]]></seriesExpression>
+						<categoryExpression><![CDATA["Tercera Edad"]]></categoryExpression>
+						<valueExpression><![CDATA[$F{tercera_edad}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<areaPlot>
+					<plot/>
+					<categoryAxisFormat>
+						<axisFormat/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat/>
+					</valueAxisFormat>
+				</areaPlot>
+			</areaChart>
+			<pie3DChart>
+				<chart evaluationTime="Report">
+					<reportElement x="447" y="260" width="231" height="151" uuid="bf7d9a74-7304-4c47-b136-bc044a45d49a"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<pieSeries>
+						<keyExpression><![CDATA[$F{adulto}]]></keyExpression>
+						<valueExpression><![CDATA[$F{adulto}]]></valueExpression>
+						<labelExpression><![CDATA["Adulto"]]></labelExpression>
+					</pieSeries>
+					<pieSeries>
+						<keyExpression><![CDATA[$F{niño}]]></keyExpression>
+						<valueExpression><![CDATA[$F{niño}]]></valueExpression>
+						<labelExpression><![CDATA["Niño"]]></labelExpression>
+					</pieSeries>
+					<pieSeries>
+						<keyExpression><![CDATA[$F{tercera_edad}]]></keyExpression>
+						<valueExpression><![CDATA[$F{tercera_edad}]]></valueExpression>
+						<labelExpression><![CDATA["Tercera Edad"]]></labelExpression>
+					</pieSeries>
+				</pieDataset>
+				<pie3DPlot>
+					<plot/>
+					<itemLabel/>
+				</pie3DPlot>
+			</pie3DChart>
+		</band>
+	</background>
+	<title>
+		<band height="94" splitType="Stretch">
+			<staticText>
+				<reportElement style="SubTitle" x="19" y="65" width="656" height="29" uuid="0dae0af3-dd1d-4b42-b346-386af21f0689"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Se detalla el número de clientes divididos en 3 grupos (Adultos, Niños y Adultos de la tercera edad). ]]></text>
+			</staticText>
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="0" width="822" height="65" forecolor="#006699" backcolor="#006699" uuid="83f5e806-cc04-4161-87a9-07633f604bc1"/>
+				<staticText>
+					<reportElement style="Title" x="22" y="0" width="578" height="65" uuid="f5cd9ee0-5caa-4e48-8946-c7e84d82a845"/>
+					<textElement textAlignment="Left">
+						<font size="45" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Reporte Tipo-Cliente]]></text>
+				</staticText>
+				<image>
+					<reportElement x="749" y="9" width="51" height="51" uuid="54758b27-10da-4371-832f-1d99a5d51e9c"/>
+					<imageExpression><![CDATA["uce1.PNG"]]></imageExpression>
+				</image>
+			</frame>
+			<staticText>
+				<reportElement x="705" y="70" width="101" height="11" uuid="fac29a18-d1dd-4c87-8d56-d93712d68088"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[S.Turistico "UCE"]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="172" splitType="Stretch">
+			<frame>
+				<reportElement x="1" y="10" width="802" height="162" uuid="2a3d298d-90eb-4db1-919a-c9b2ed28c222"/>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="20" y="30" width="100" height="14" forecolor="#000000" uuid="6ea1fe48-ccfe-468f-bd45-911effbd92f4">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d8eec36e-27dc-42ce-bb5b-d4d4b2459f71"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Adultos:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="19" y="50" width="100" height="14" forecolor="#000000" uuid="02ef4ee4-8416-43df-81ed-f76cc942108f">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="16157152-ece5-4f21-9501-7c442f8c85ca"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Niños:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="18" y="71" width="142" height="14" forecolor="#000000" uuid="08caef69-aec1-4d36-b47a-cbd5bf572568">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f6c140b8-c7e2-44c7-a525-34a379900451"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Adultos Tercera Edad:]]></text>
+				</staticText>
+				<frame>
+					<reportElement x="170" y="10" width="272" height="110" uuid="822bafe9-34ee-4b4f-aa76-3eae029c4911"/>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement style="Detail" positionType="Float" x="0" y="20" width="191" height="14" uuid="40151db3-6e7b-4b5c-abec-8819981dcac7">
+							<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d8eec36e-27dc-42ce-bb5b-d4d4b2459f71"/>
+						</reportElement>
+						<textElement>
+							<font fontName="Arial" size="12" isBold="false"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{adulto}]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement style="Detail" positionType="Float" x="0" y="43" width="191" height="14" uuid="ebc7c569-1f69-4ce1-a310-10229ad81303">
+							<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="16157152-ece5-4f21-9501-7c442f8c85ca"/>
+						</reportElement>
+						<textElement>
+							<font fontName="Arial" size="12" isBold="false"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{niño}]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement style="Detail" positionType="Float" x="0" y="65" width="191" height="14" uuid="7e94a60b-00ed-46cd-b00c-0cb1204aa77d">
+							<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f6c140b8-c7e2-44c7-a525-34a379900451"/>
+						</reportElement>
+						<textElement>
+							<font fontName="Arial" size="12" isBold="false"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{tercera_edad}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<staticText>
+					<reportElement x="19" y="5" width="101" height="21" uuid="35218577-74fa-48fa-80c5-097ba9215d3d"/>
+					<textElement>
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Tipo Persona:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="171" y="7" width="31" height="21" uuid="ba9bcf0f-f1e9-4db2-8750-cc38564b02c0"/>
+					<textElement>
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[N.-]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="24" y="135" width="216" height="21" uuid="439a443c-a94b-457b-b190-8e3399394cb6"/>
+					<textElement>
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Gráficos Estadísticos:]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="10" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="12" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="c23ffbf7-1928-41f8-ade3-5930d9a4871d"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="16" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="2" y="0" width="800" height="16" forecolor="#D0B48E" backcolor="#006699" uuid="6f4fe8ef-88ca-4d5d-b46a-054826bb7893"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="753" y="0" width="40" height="16" forecolor="#FFFFFF" uuid="970781d6-87a0-4d3d-a07b-5ae173a1317a"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="673" y="0" width="80" height="16" forecolor="#FFFFFF" uuid="42664b34-c87b-42f8-911b-bd9c2ab9111e"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="0" width="197" height="16" forecolor="#FFFFFF" uuid="06b3d6e8-b4a5-4251-b1fb-f640689933e8"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

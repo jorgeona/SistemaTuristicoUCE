@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.9.0.final using JasperReports Library version 6.9.0-cb8f9004be492ccc537180b49c026951f4220bf3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteReservasCliente" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2b5712af-62b7-4ffc-a7b9-f0288b969b27">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="TurismoDB"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT(SELECT count(reservas)AS VUELOS FROM cliente WHERE UPPER(reservas) LIKE UPPER('%vuelo%')),
+(SELECT count(reservas)AS CARRO FROM cliente WHERE UPPER(reservas) LIKE UPPER('%carro%')),
+(SELECT count(reservas)AS COMIDA FROM cliente WHERE UPPER(reservas) LIKE UPPER('%comida%')),
+(SELECT count(reservas)AS CRUCERO FROM cliente WHERE UPPER(reservas) LIKE UPPER('%crucero%')),
+(SELECT count(reservas)AS HOSPEDAJE FROM cliente WHERE UPPER(reservas) LIKE UPPER('%hospedaje%')),
+count(reservas)AS ADICIONALES FROM cliente WHERE UPPER(reservas) LIKE UPPER('%adicionales%')]]>
+	</queryString>
+	<field name="vuelos" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="vuelos"/>
+	</field>
+	<field name="carro" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="carro"/>
+	</field>
+	<field name="comida" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="comida"/>
+	</field>
+	<field name="crucero" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="crucero"/>
+	</field>
+	<field name="hospedaje" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="hospedaje"/>
+	</field>
+	<field name="adicionales" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="adicionales"/>
+	</field>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="8b079399-a513-4872-9191-7d0dde6b06b9"/>
+				<staticText>
+					<reportElement x="20" y="20" width="234" height="43" forecolor="#FFFFFF" uuid="61bf05ba-8cc3-40e9-9b0a-51e090c9af49"/>
+					<textElement>
+						<font size="18" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Reporte Reservas-Cliente]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="50" width="480" height="20" forecolor="#FFFFFF" uuid="69791db7-7a28-40fd-83a3-7ef5dfa77613"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Se detalla el servicio de reservas que mas adquieren nuestros clientes ]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="52">
+			<staticText>
+				<reportElement x="170" y="12" width="140" height="40" uuid="3952ec37-0089-4674-80ac-c35146ad058c"/>
+				<textElement>
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[N.-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="10" width="140" height="40" uuid="791e60bd-02da-4aa1-b5de-1e7461cbfc5b"/>
+				<textElement>
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[Reserva]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="0" y="10" width="555" height="1" forecolor="#666666" uuid="47a2b3dc-c953-47f9-81db-65ef6bfd05fd"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="231">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="230" width="555" height="1" uuid="478ad7c6-f872-4579-b2b3-18874d4af5b6"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="170" y="41" width="92" height="20" uuid="dffc2c4f-e212-43fa-8351-a6b6e5ddbb61">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="74d58d4b-e218-4a1f-93ca-d761e6a9049d"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{carro}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="170" y="80" width="92" height="20" uuid="6a4bfbfe-fb9c-499f-9ea8-67cdcce91312">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="98eee616-13a1-45e1-87a4-75ef3cf428fc"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{comida}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="170" y="121" width="92" height="20" uuid="e7dd7703-796a-4136-bdfc-406f5972c1d7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="54ede9d7-b971-4f56-9ed3-cf4f6868a88b"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{crucero}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="170" y="160" width="92" height="20" uuid="5489b446-1a03-4f82-9b34-35ae0ed90a23">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="65302c9c-a4f0-4b68-affc-bf6c2d267cb6"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{hospedaje}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="170" y="201" width="92" height="20" uuid="f1110050-c107-44e8-8611-054dbf24862a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="281645f6-103c-4035-a6ed-56e8dc704b28"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{adicionales}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="40" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="c0e811a9-efad-4304-869e-fd8e21a63a18">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="74d58d4b-e218-4a1f-93ca-d761e6a9049d"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Carro]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="80" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="109ce373-4e42-4c39-8bf8-3444db0258ee">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="98eee616-13a1-45e1-87a4-75ef3cf428fc"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Comida]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="121" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="663418eb-4db6-470d-8a16-34c418caa51d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="54ede9d7-b971-4f56-9ed3-cf4f6868a88b"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Crucero]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="160" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="0c99dc1b-9f16-40cd-9fd1-4006da636f3c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="65302c9c-a4f0-4b68-affc-bf6c2d267cb6"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hospedaje]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="200" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="9d9360af-c7d2-4f48-8473-9071ffc323e2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="281645f6-103c-4035-a6ed-56e8dc704b28"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Adicionales]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="1539e3ba-9d31-44d9-b063-279ed250630a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ec097801-d7ab-459b-a3ed-d5a444c08b0c"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Vuelos]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="170" y="-1" width="92" height="20" uuid="d0783d54-da2f-456e-8690-01abb9418e29">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ec097801-d7ab-459b-a3ed-d5a444c08b0c"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vuelos}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="35">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="f3bf005f-f205-4ce6-b912-9c9d8b1cd5a3"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="abae70ad-1922-4490-8c92-0ef363394cec"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="8f8b4704-8a29-49bb-8fd0-f37c818d3115"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

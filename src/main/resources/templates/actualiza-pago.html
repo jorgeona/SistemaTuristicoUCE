@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Actualizar Pagos Cliente</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+        <link rel="stylesheet" href="../css/shards.min.css">
+    </head>
+    <body>
+    <center><h1>SISTEMA TURISTICO UCE</h1></center>
+        <div class="container my-5">
+            <h2 class="mb-5" style="color:#3e5f8a">Añadir Pagos o Abonos del Cliente</h2>
+            <div class="row">
+                <div class="col-md-6">
+                   <form action="#" th:action="@{/update1/{id}(id=${cliente.id})}" th:object="${cliente}" method="post">
+                        <div class="row">   
+                    <div class="form-group col-md-6">
+                                <label for="contrato" class="col-form-label">Numero de Contrato</label>
+                                <input type="text" th:field="*{contrato}" class="form-control" id="contrato" placeholder="Numero de Contrato">
+                                <span th:if="${#fields.hasErrors('contrato')}" th:errors="*{contrato}" class="text-danger"></span>
+                            </div>
+ <!-- {Actualiza_pagos} -->
+   <div class="row">
+	<h2 class="mb-5" style="color:#3e5f8a">Detalle de pagos</h2>
+						<div class="row">
+						<div class="form-group col-md-6">
+                                <label for="pago1" class="col-form-label">Pago1</label>
+                                <input type="text" th:field="*{pago1}" class="form-control" id="pago1" placeholder="Pago1">
+                                <span th:if="${#fields.hasErrors('pago1')}" th:errors="*{pago1}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="fecha1" class="col-form-label">Fecha Pago1</label>
+                                <input type="date" th:field="*{fecha1}" class="form-control" id="fecha1" placeholder="Fecha Pago1">
+                                <span th:if="${#fields.hasErrors('fecha1')}" th:errors="*{fecha1}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="pago2" class="col-form-label">Pago2</label>
+                                <input type="text" th:field="*{pago2}" class="form-control" id="pago2" placeholder="Pago2">
+                                <span th:if="${#fields.hasErrors('pago2')}" th:errors="*{pago2}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="fecha2" class="col-form-label">Fecha Pago2</label>
+                                <input type="date" th:field="*{fecha2}" class="form-control" id="fecha2" placeholder="Fecha Pago2">
+                                <span th:if="${#fields.hasErrors('fecha2')}" th:errors="*{fecha2}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="pago3" class="col-form-label">Pago3</label>
+                                <input type="text" th:field="*{pago3}" class="form-control" id="pago3" placeholder="Pago3">
+                                <span th:if="${#fields.hasErrors('pago3')}" th:errors="*{pago3}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="fecha3" class="col-form-label">Fecha Pago3</label>
+                                <input type="date" th:field="*{fecha3}" class="form-control" id="fecha3" placeholder="Fecha Pago3">
+                                <span th:if="${#fields.hasErrors('fecha3')}" th:errors="*{fecha3}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="pago4" class="col-form-label">Pago4</label>
+                                <input type="text" th:field="*{pago4}" class="form-control" id="pago4" placeholder="Pago4">
+                                <span th:if="${#fields.hasErrors('pago4')}" th:errors="*{pago4}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="fecha4" class="col-form-label">Fecha Pago4</label>
+                                <input type="date" th:field="*{fecha4}" class="form-control" id="fecha4" placeholder="Fecha Pago4">
+                                <span th:if="${#fields.hasErrors('fecha4')}" th:errors="*{fecha4}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="pago5" class="col-form-label">Pago5</label>
+                                <input type="text" th:field="*{pago5}" class="form-control" id="pago5" placeholder="Pago5">
+                                <span th:if="${#fields.hasErrors('pago5')}" th:errors="*{pago5}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="fecha5" class="col-form-label">Fecha Pago5</label>
+                                <input type="date" th:field="*{fecha5}" class="form-control" id="fecha5" placeholder="Fecha Pago5">
+                                <span th:if="${#fields.hasErrors('fecha5')}" th:errors="*{fecha5}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="pago6" class="col-form-label">Pago6</label>
+                                <input type="text" th:field="*{pago6}" class="form-control" id="pago6" placeholder="Pago6">
+                                <span th:if="${#fields.hasErrors('pago6')}" th:errors="*{pago6}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="fecha6" class="col-form-label">Fecha Pago6</label>
+                                <input type="date" th:field="*{fecha6}" class="form-control" id="fecha6" placeholder="Fecha Pago6">
+                                <span th:if="${#fields.hasErrors('fecha6')}" th:errors="*{fecha6}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="pago7" class="col-form-label">Pago7</label>
+                                <input type="text" th:field="*{pago7}" class="form-control" id="pago7" placeholder="Pago7">
+                                <span th:if="${#fields.hasErrors('pago7')}" th:errors="*{pago7}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="fecha7" class="col-form-label">Fecha Pago7</label>
+                                <input type="date" th:field="*{fecha7}" class="form-control" id="fecha7" placeholder="Fecha Pago7">
+                                <span th:if="${#fields.hasErrors('fecha7')}" th:errors="*{fecha7}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="pago8" class="col-form-label">Pago8</label>
+                                <input type="text" th:field="*{pago8}" class="form-control" id="pago8" placeholder="Pago8">
+                                <span th:if="${#fields.hasErrors('pago8')}" th:errors="*{pago8}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="fecha8" class="col-form-label">Fecha Pago8</label>
+                                <input type="date" th:field="*{fecha8}" class="form-control" id="fecha8" placeholder="Fecha Pago8">
+                                <span th:if="${#fields.hasErrors('fecha8')}" th:errors="*{fecha8}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="pago9" class="col-form-label">Pago9</label>
+                                <input type="text" th:field="*{pago9}" class="form-control" id="pago9" placeholder="Pago9">
+                                <span th:if="${#fields.hasErrors('pago9')}" th:errors="*{pago9}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="fecha9" class="col-form-label">Fecha Pago9</label>
+                                <input type="date" th:field="*{fecha9}" class="form-control" id="fecha9" placeholder="Fecha Pago9">
+                                <span th:if="${#fields.hasErrors('fecha9')}" th:errors="*{fecha9}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="pago10" class="col-form-label">Pago10</label>
+                                <input type="text" th:field="*{pago10}" class="form-control" id="pago10" placeholder="Pago10">
+                                <span th:if="${#fields.hasErrors('pago10')}" th:errors="*{pago10}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="fecha10" class="col-form-label">Fecha Pago10</label>
+                                <input type="date" th:field="*{fecha10}" class="form-control" id="fecha10" placeholder="Fecha Pago10">
+                                <span th:if="${#fields.hasErrors('fecha10')}" th:errors="*{fecha10}" class="text-danger"></span>
+                            </div></div></div>
+<!-- {fin_actualiza_pagos} -->                     
+<br><div class="row">               
+                <h5 class="mb-5" style="color:#3e5f8a">Si es necesario actualizar o relaizar un cambio en la informacion
+                del cliente proceda, de lo contrario no editar estos campos</h5>       
+                           <div class="form-group col-md-6">
+                            	<label for="nombrempleado" class="col-form-label">Colaborador Registro Contrato</label>
+                            	<select th:field="*{nombrempleado}" class="form-control" id="nombrempleado" placeholder="Empleado"> 
+  									<option value=""></option>
+  									<option value="Andres Orellana">Andres Orellana</option>
+  									<option value="Nancy Chavez">Nancy Chavez</option>	
+  									<option value="Jorge Oña">Jorge Oña</option>	
+  									<option value="Santiago Morales">Santiago Morales</option>							
+								</select>
+								<span th:if="${#fields.hasErrors('nombrempleado')}" th:errors="*{nombrempleado}" class="text-danger"></span>
+                            </div> 
+                            <div class="form-group col-md-6">
+                                <label for="fechadigitacion" class="col-form-label">Fecha Registro Contrato</label>
+                                <input type="date" th:field="*{fechadigitacion}" class="form-control" id="fechadigitacion" placeholder="Registro del contrato">
+                                <span th:if="${#fields.hasErrors('fechadigitacion')}" th:errors="*{fechadigitacion}" class="text-danger"></span>
+                            </div>
+                           <div class="form-group col-md-6">
+                                <label for="procedencia" class="col-form-label">Procedencia</label>
+                                <input type="text" 
+                                
+                                th:field="*{procedencia}" class="form-control" id="procedencia" placeholder="Procedencia">
+                                <span th:if="${#fields.hasErrors('procedencia')}" th:errors="*{procedencia}" class="text-danger"></span>
+                            </div>                
+                            <div class="form-group col-md-6">
+                                <label for="name" class="col-form-label">Apellidos y Nombres</label>
+                                <input type="text" th:field="*{name}" class="form-control" id="name" placeholder="Apellidos y Nombres">
+                                <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="ncelular" class="col-form-label">Numero Celular</label>
+                                <input type="text" th:field="*{ncelular}" class="form-control" id="ncelular" placeholder="Numero Celular">
+                                <span th:if="${#fields.hasErrors('ncelular')}" th:errors="*{ncelular}" class="text-danger"></span>
+                            </div>
+                             <div class="form-group col-md-6">
+                                <label for="nfijo" class="col-form-label">Numero Fijo</label>
+                                <input type="text" th:field="*{nfijo}" class="form-control" id="nfijo" placeholder="Numero Fijo">
+                                <span th:if="${#fields.hasErrors('nfijo')}" th:errors="*{nfijo}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="email" class="col-form-label">Correo Electronico</label>
+                                <input type="text" th:field="*{email}" class="form-control" id="email" placeholder="Correo Electronico">
+                                <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="nacionalidad" class="col-form-label">Nacionalidad</label>
+                                <input type="text" th:field="*{nacionalidad}" class="form-control" id="nacionalidad" placeholder="Nacionalidad">
+                                <span th:if="${#fields.hasErrors('nacionalidad')}" th:errors="*{nacionalidad}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                            <label for="tipo" class="col-form-label">Tipo(Persona)</label>
+                            <select th:field="*{tipo}" class="form-control" id="tipo" placeholder="Tipo(Persona)"> 
+  								<option value=""></option>
+  								<option value="Niño">Niño</option>
+  								<option value="Adulto">Adulto</option>
+  								<option value="Tercera Edad">Tercera Edad</option>							
+							</select>
+							<span th:if="${#fields.hasErrors('tipo')}" th:errors="*{tipo}" class="text-danger"></span>
+                            </div>                                                        
+                            <div class="form-group col-md-6">
+                                <label for="fnac" class="col-form-label">Fecha de Nacimiento</label>
+                                <input type="date" th:field="*{fnac}" class="form-control" id="fnac" placeholder="Fecha de Nacimiento">
+                                <span th:if="${#fields.hasErrors('fnac')}" th:errors="*{fnac}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="fini" class="col-form-label">Fecha Inicio</label>
+                                <input type="date" th:field="*{fini}" class="form-control" id="fini" placeholder="Fecha Inicio">
+                                <span th:if="${#fields.hasErrors('fini')}" th:errors="*{fini}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="ffin" class="col-form-label">Fecha Fin</label>
+                                <input type="date" th:field="*{ffin}" class="form-control" id="ffin" placeholder="Fecha Fin">
+                                <span th:if="${#fields.hasErrors('ffin')}" th:errors="*{ffin}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="cuantia" class="col-form-label">Cuantia</label>
+                                <input type="text" th:field="*{cuantia}" class="form-control" id="cuantia" placeholder="Cuantia">
+                                <span th:if="${#fields.hasErrors('cuantia')}" th:errors="*{cuantia}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="cuotaunica" class="col-form-label">Cuota Unica</label>
+                                <input type="text" th:field="*{cuotaunica}" class="form-control" id="cuotaunica" placeholder="Cuota Unica">
+                                <span th:if="${#fields.hasErrors('cuotaunica')}" th:errors="*{cuotaunica}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="valorcontrato" class="col-form-label">Valor Contrato</label>
+                                <input type="text" th:field="*{valorcontrato}" class="form-control" id="valorcontrato" placeholder="Valor Contrato">
+                                <span th:if="${#fields.hasErrors('valorcontrato')}" th:errors="*{valorcontrato}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="valordia" class="col-form-label">Valor al Dia</label>
+                                <input type="text" th:field="*{valordia}" class="form-control" id="valordia" placeholder="Valor al Dia">
+                                <span th:if="${#fields.hasErrors('valordia')}" th:errors="*{valordia}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="saldo" class="col-form-label">Saldo</label>
+                                <input type="text" th:field="*{saldo}" class="form-control" id="saldo" placeholder="Saldo">
+                                <span th:if="${#fields.hasErrors('saldo')}" th:errors="*{saldo}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                            <label for="cortesia" class="col-form-label">Cortesias</label>
+                            <select th:field="*{cortesia}" class="form-control" id="cortesia" placeholder="Cortesias"> 
+  								<option value=""></option>
+  								<option value="1">Uno</option>
+  								<option value="2">Dos</option>
+  								<option value="3">Tres</option>
+  								<option value="4">Cuatro</option>
+  								<option value="5">Cinco</option>							
+							</select>
+							<span th:if="${#fields.hasErrors('cortesia')}" th:errors="*{cortesia}" class="text-danger"></span>
+                            </div>                           
+                            
+                            <div class="form-group col-md-6">
+                                <label for="dcortesia" class="col-form-label">Descripcion Cortesia</label>
+                                <input type="text" th:field="*{dcortesia}" class="form-control" id="dcortesia" placeholder="Descripcion Cortesia">
+                                <span th:if="${#fields.hasErrors('dcortesia')}" th:errors="*{dcortesia}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="cortesiaen" class="col-form-label">Cortesias Entregadas</label>
+                                <input type="text" th:field="*{cortesiaen}" class="form-control" id="cortesiaen" placeholder="Cortesias Entregadas">
+                                <span th:if="${#fields.hasErrors('cortesiaen')}" th:errors="*{cortesiaen}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="cotizaciones" class="col-form-label">Cotizaciones</label>
+                                <input type="text" th:field="*{cotizaciones}" class="form-control" id="cotizaciones" placeholder="Cotizaciones">
+                                <span th:if="${#fields.hasErrors('cotizaciones')}" th:errors="*{cotizaciones}" class="text-danger"></span>
+                            </div>                                                       
+                            <div class="form-group col-md-6">
+                                <label for="reservas" class="col-form-label">Reservas</label>
+                                <input type="text" th:field="*{reservas}" class="form-control" id="reservas" placeholder="Reservas">
+                                <span th:if="${#fields.hasErrors('reservas')}" th:errors="*{reservas}" class="text-danger"></span>
+                            </div> 
+                             <div class="form-group col-md-6">
+                                <label for="dreservas" class="col-form-label">Detalle Reservas</label>
+                                <input type="text" th:field="*{dreservas}" class="form-control" id="dreservas" placeholder="Detalle Reservas">
+                                <span th:if="${#fields.hasErrors('dreservas')}" th:errors="*{dreservas}" class="text-danger"></span>
+                            </div>                        
+                            
+                            <div class="form-group col-md-6">
+                                <label for="freserva" class="col-form-label">Fecha Reserva</label>
+                                <input type="text" th:field="*{freserva}" class="form-control" id="freserva" placeholder="Fecha Reserva">
+                                <span th:if="${#fields.hasErrors('freserva')}" th:errors="*{freserva}" class="text-danger"></span>
+                            </div> 
+                        </div></div>
+                        <div class="row">
+                            <div class="col-md-6 mt-5">
+                                <input type="submit" class="btn btn-primary" value="Guardar">
+                                <a class="btn btn-success" href="/pago">Regresar<i class="fas fa-arrow-left ml-2"></i></a>
+                            </div>
+                        </div>    
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

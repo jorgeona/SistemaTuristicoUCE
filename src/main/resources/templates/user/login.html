@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org">
+
+<head>
+ <title>Bienvenido al Sistema Turismo UCE.</title>
+ <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+ <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">
+
+<style type="text/css">
+	.login-form {
+		width: 340px;
+    	margin: 50px auto;
+	}
+    .login-form form {
+    	margin-bottom: 15px;
+        background: #f7f7f7;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        padding: 30px;
+    }
+    .login-form h2 {
+        margin: 0 0 15px;
+    }
+    .form-control, .btn {
+        min-height: 38px;
+        border-radius: 2px;
+    }
+    .btn {        
+        font-size: 15px;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body  background="https://i.ibb.co/vvJ1ZtD/portada.jpg">
+<br>
+<img src="https://i.ibb.co/dfCWX2k/uce1.png" align="left" WIDTH=100 HEIGHT=50>	
+<h1 style="text-align:left;color:white"><font face="Aharoni"><strong>BIENVENIDO/WELCOME</strong></font></h1>
+ <div class="container">
+  <div class="alert alert-danger" role="alert" th:if="${param.error}">
+   Tu correo o contraseña es incorrecta!
+  </div>
+  <div class="login-form" style="margin-top:150px">
+        <form th:action="@{/login}" method="post" >
+       <center><img src="https://i.ibb.co/3S5nHTM/uce.png" WIDTH=100 HEIGHT=100></center>
+       <center><h1 class="h3 mb-3 font-weight-normal">Acceso Sistema Empresas Turisticas "UCE"</strong></h1></center>
+       <label for="inputEmail" class="sr-only">Email</label>
+       <input type="email" id="email" name="email" class="form-control" placeholder="Email" required autofocus>
+       <label for="inputPassword" class="sr-only">Password</label>
+       <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña" required>
+       <div class="checkbox mb-3">
+         <label>
+           <input type="checkbox" name="remember-me" /> Recuérdame
+         </label>
+       </div>
+       <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+       <div class="margin-top20 text-center"> No tienes cuenta? <a th:href="@{/signup}">Crear un Cuenta</a></div>
+  </form>
+  </div>
+    </div>
+    <h6 style="color:black"><span style="background-color:orange"> Para más información, consulte el:</span>
+			<A href="http://uce.edu.ec/" charset="ISO-8859-1" style="color:#5CF2E8"><strong>"Sitio web UCE"</strong></A></h6>			
+        			<STYLE type="text/css">
+  						H6.creditos {text-align: right}
+ 					</STYLE>	
+ 					<H6 class="creditos" style="color:silver"><span style="background-color:green">"ES UN PLACER ATENDERLOS"</span></H6>
+ 					<H6 class="creditos"><span style="background-color:green"><strong>Tutor: Dr. Santiago Morales</strong></span></H6> 
+        			<H6 class="creditos" style="color:#5e2129"><span style="background-color:green"><strong>Contact App Developer: jlonac@uce.edu.ec</strong></span></H6>     
+</body>
+</html>
